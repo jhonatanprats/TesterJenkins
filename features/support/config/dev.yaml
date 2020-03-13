@@ -1,0 +1,14 @@
+---
+url: "http://localhost:8000/login"
+database: 
+    host: "localhost"
+    dbname: "nflix"
+    user: "postgres"
+    password: "qaninja"
+users:
+    cat_manager:
+        email: "tony@stark.com"    
+        pass: "123456"
+    admin:
+        email: "jhou@gmail.com"
+        pass: "123456"        
