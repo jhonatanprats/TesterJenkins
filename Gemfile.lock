@@ -71,12 +71,12 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
-  capybara
-  cucumber
-  os
-  pg
-  rspec
-  selenium-webdriver
+  capybara (= 3.18.0)
+  cucumber (= 3.1.2)
+  os (= 1.0.1)
+  pg (= 1.1.4)
+  rspec (= 3.8.0)
+  selenium-webdriver (= 3.142.0)
 
 BUNDLED WITH
    2.1.4
