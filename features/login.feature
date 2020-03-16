@@ -9,7 +9,7 @@ Funcionalidade: Login
 Cenario: Acesso
     Quando eu faço login com "tony@stark.com" e "123456"
     Então devo ser autenticado
-    E devo ver "Tony Stark1" na área logada
+    E devo ver "Tony Stark" na área logada
 
 @login_hapless
 Esquema do Cenario: Login sem Sucesso
