@@ -10,12 +10,12 @@ pipeline{
             steps{
                 sh "chmod +x build/alpine.sh"
                 sh "./build/alpine.sh"
-            sh "bundle install"
+				sh "bundle install"
             }
         }
         stage("Tests"){
             steps{
-            sh "bundle exec cucumber -p ci"
+            sh "bundler exec cucumber -p ci"
             }
         }
     }

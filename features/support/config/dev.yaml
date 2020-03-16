@@ -7,7 +7,6 @@ database:
     password: "qaninja"
 api:
    movies: "http://nflix-api-movies:3002"
-
 users:
     cat_manager:
         email: "tony@stark.com"    
