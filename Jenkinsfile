@@ -2,6 +2,7 @@ pipeline{
     agent {
         docker {
             image "ruby:alpine"
+            args "--network=skynet"
         }
     }
     stages {
@@ -14,7 +15,7 @@ pipeline{
         }
         stage("Tests"){
             steps{
-            sh "bundler exec cucumber"
+            sh "bundler exec cucumber -p ci"
             }
         }
     }
