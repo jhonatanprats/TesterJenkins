@@ -5,6 +5,7 @@ docker start nflix-api-users
 docker start nflix-api-movies
 docker start nflix-api-gateway
 docker start nflix-web
+docker start jenkins/blueocean 
 
 
 CRIAR REDE LOCAL PARA OS CONTAINERS 
