@@ -8,6 +8,7 @@ docker start nflix-web
 docker start jenkins/blueocean 
 
 
+
 CRIAR REDE LOCAL PARA OS CONTAINERS 
 docker network create --driver bridge skynet
 
