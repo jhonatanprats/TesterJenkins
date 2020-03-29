@@ -4,9 +4,16 @@ docker start pgadmin
 docker start nflix-api-users
 docker start nflix-api-movies
 docker start nflix-api-gateway
-docker start nflix-web
+docker start nflix-web2
 docker start jenkins/blueocean 
 
+
+docker image rm -f 73119b8892f9
+docker image rm -f 54c26144463b
+docker image rm -f a768e85cef52
+docker image rm -f d29338a66f05
+docker image rm -f a35b495b65a6
+docker image rm -f a8747c528831
 
 
 CRIAR REDE LOCAL PARA OS CONTAINERS 
@@ -14,7 +21,7 @@ docker network create --driver bridge skynet
 
 AGORA REALIZAR DOWNLOAD DA IMAGEM DO BANCO DE DADOS
 docker pull postgres
-docker pull dpage/pgadmin4
+#docker pull dpage/pgadmin4
 
 SUBINDO O CONTAINER DA IMAGEM BAIXADA DO BANCO DE DADOS
 docker run --name pgdb --network=skynet -e "POSTGRES_PASSWORD=qaninja" -p 5432:5432 -v var/lib/postgresql/data -d postgres
@@ -22,8 +29,11 @@ docker run --name pgdb --network=skynet -e "POSTGRES_PASSWORD=qaninja" -p 5432:5
 SUBINDO O ADMISTRADOR WEB PARA ACESSAR E MANIPULAR O BANCO DE DADOS
 docker run --name pgadmin --network=skynet -e "PGADMIN_DEFAULT_EMAIL=root@qaninja.io" -e "PGADMIN_DEFAULT_PASSWORD=qaninja" -p 15432:80 -d dpage/pgadmin4
 
+
 ACESSAR O GERENCIADOR DO BANCO DE DADOS
-http://localhost:15432/browser/
+ipmaquina = docker-machine ip default
+
+http://192.168.99.100:15432/browser/
 root@qaninja.io e qaninja
 
 CONECTAR COM O BANCO EM SERVER, CREATE SERVER
@@ -33,7 +43,7 @@ host name = pgdb
 username - postgres
 password = qaninja
 
-COM BOTÃO DIRETO EM DATABASE, CRIAR UM COM NOME NFLIX E OWNER É O PRÓPRIO POSTGRES
+COM BOTÃO DIRETO EM pgdb ir em DATABASE, CRIAR UM banco COM NOME NFLIX E OWNER É O PRÓPRIO POSTGRES
 
 BAIXAR E SUBIR O DOCKER DE USERS
 docker pull papitoio/nflix-api-users
@@ -48,12 +58,10 @@ docker pull papitoio/nflix-api-gateway
 docker run --name nflix-api-gateway --network=skynet -e "DATABASE=pgdb" -e "API_USERS=http://nflix-api-users:3001" -e "API_MOVIES=http://nflix-api-movies:3002" -p 3000:3000 -d papitoio/nflix-api-gateway
 
 BAIXAR E SUBIR O DOCKER DE WEB
-docker pull papitoio/nflix-web
+docker pull papitoio/nflix-web2
 
 docker run --name nflix-web --network=skynet -e "VUE_APP_API=http://localhost:3000" -p 8000:8000 -d papitoio/nflix-web
-$docker run --name nflix-web --network=skynet -e "VUE_APP_API=http://nflix-api-gateway:3000" -p 8000:8000 -d papitoio/nflix-web2
-
-
+$docker run --name nflix-web2 --network=skynet -e "VUE_APP_API=http://nflix-api-gateway:3000" -p 8000:8000 -d papitoio/nflix-web2
 
 
 
@@ -63,4 +71,4 @@ docker run --name nflix-api-gateway --network=skynet -e "API_USERS=http://nflix-
 docker run --name nflix-web --network=skynet -e "VUE_APP_API=http://localhost:3000" -p 8080:8080 -d papitoio/nflix-web
 
 
-
+Após isso tem que fazer um post para a api users, passando os tributos com o novo usuaria, pegar os dados pelo (apiuser no /apidoc)
