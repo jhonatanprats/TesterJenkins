@@ -5,7 +5,7 @@ docker start nflix-api-users
 docker start nflix-api-movies
 docker start nflix-api-gateway
 docker start nflix-web2
-docker start jenkins/blueocean 
+docker start jenkins-blueocean 
 
 
 docker image rm -f 73119b8892f9
@@ -72,3 +72,7 @@ docker run --name nflix-web --network=skynet -e "VUE_APP_API=http://localhost:30
 
 
 Após isso tem que fazer um post para a api users, passando os tributos com o novo usuaria, pegar os dados pelo (apiuser no /apidoc)
+
+Acessar jenkins (http://192.168.99.100:8080/login?from=%2F)
+
+Entrar dentro do container do \jenkins ... - docker exec -it jenkins sh
