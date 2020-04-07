@@ -16,6 +16,7 @@ pipeline{
         stage("Tests"){
             steps{
             sh "bundler exec cucumber -p ci"
+            sh "echo 'simulando um teste automatico'"
             cucumber failedFeaturesNumber: -1, failedScenariosNumber: -1, failedStepsNumber: -1, fileIncludePattern: '**/*.json', jsonReportDirectory: 'log', pendingStepsNumber: -1, skippedStepsNumber: -1, sortingMethod: 'ALPHABETICAL', undefinedStepsNumber: -1
             }
         }
