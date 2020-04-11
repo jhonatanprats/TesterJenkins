@@ -76,3 +76,6 @@ Após isso tem que fazer um post para a api users, passando os tributos com o no
 Acessar jenkins (http://192.168.99.100:8080/login?from=%2F)
 
 Entrar dentro do container do \jenkins ... - docker exec -it jenkins sh
+
+
+INTEGRAÇÃO DO JENKINS COM O SLACK (URL BASICO:jenkinsqa OU jenkinsqa.slack.com, TOKEN DE INTEGRAÇÃO:nEQmH3Rqj5KjMTCs2endZfr7 )

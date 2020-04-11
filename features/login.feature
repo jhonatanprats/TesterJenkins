@@ -22,4 +22,4 @@ Exemplos:
     | "tony@stark.com" | "123455" | "Usuário e/ou senha inválidos" |
     | "404@yahoo.com"  | "123456" | "Usuário e/ou senha inválidos" |
     | ""               | "123456" | "Opps. Cadê o email?"          |
-    | "tony@stark.com" | ""       | "Puxa. Cadê a senha?"          |
+    | "tony@stark.com" | ""       | "Opps. Cadê a senha?"          |
