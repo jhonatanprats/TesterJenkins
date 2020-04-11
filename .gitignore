@@ -1,3 +1,4 @@
 log/*.html
 log/*.json
 log/*.png
+log/screenshots/*.png
